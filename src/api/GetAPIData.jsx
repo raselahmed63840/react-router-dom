@@ -3,7 +3,7 @@ import React from "react";
 const GetAPIData = async () => {
   try {
     const response = await fetch(
-      "http://www.omdbapi.com/?i=tt38961988&apikey=1c12799f&s=titanic&page=1",
+      `http://www.omdbapi.com/?i=tt38961988&apikey=${import.meta.env.VITE_API_KEY}&s=titanic&page=1`,
     );
     const data = await response.json();
     return data; // should include { Search: [...] }
