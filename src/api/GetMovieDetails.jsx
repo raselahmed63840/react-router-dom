@@ -1,9 +1,11 @@
 import React from "react";
 
-const GetAPIData = async () => {
+const GetMovieDetails = async ({ params }) => {
+  console.log(params);
+  const id = params.movieID;
   try {
     const response = await fetch(
-      `http://www.omdbapi.com/?i= tt38961988&apikey=${import.meta.env.VITE_API_KEY}&s=titanic&page=1`,
+      `http://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_API_KEY}`,
     );
     const data = await response.json();
     return data; // should include { Search: [...] }
@@ -13,4 +15,4 @@ const GetAPIData = async () => {
   }
 };
 
-export default GetAPIData;
+export default GetMovieDetails;
